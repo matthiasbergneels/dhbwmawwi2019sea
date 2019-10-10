@@ -1,4 +1,4 @@
-# DHBWMAWWI2018SEA
+# DHBWMAWWI2019SEA
 
 ## FAQ
 Wo finde ich das Skript?
