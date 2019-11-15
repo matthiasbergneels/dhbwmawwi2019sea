@@ -66,7 +66,31 @@ public class DatatypeExamples {
 
         System.out.println(numbers.length);
 
-        System.out.println(args.length);
+        int[] numbers2 = {672, 778, 622, 782, 981, 782};
 
+        System.out.println(numbers2.length);
+
+        char[][] tictactoe = new char[3][3];
+
+        tictactoe[1][1] = 'X';
+
+        String[][] sentences = new String[10][];
+
+        sentences[0] = new String[3];
+
+        sentences[0][0] = "Ich";
+        sentences[0][1] = "habe";
+        sentences[0][2] = "hunger";
+
+        sentences[1] = new String[5];
+
+        sentences[1][0] = "Ich";
+        sentences[1][1] = "will";
+        sentences[1][2] = "nicht";
+        sentences[1][3] = "viel";
+        sentences[1][4] = "lernen";
+
+
+        String[][] sentences2 = {{"Ich", "habe", "hunger"}, {"Ich", "will", "nicht", "viel", "lernen"}};
     }
 }
