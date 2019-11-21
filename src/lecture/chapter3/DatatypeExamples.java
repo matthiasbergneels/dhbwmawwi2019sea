@@ -90,6 +90,10 @@ public class DatatypeExamples {
         sentences[1][3] = "viel";
         sentences[1][4] = "lernen";
 
+        System.out.println(sentences.length);
+        System.out.println(sentences[0].length);
+        System.out.println(sentences[1].length);
+
 
         String[][] sentences2 = {{"Ich", "habe", "hunger"}, {"Ich", "will", "nicht", "viel", "lernen"}};
     }
