@@ -4,15 +4,18 @@ public class CarTest {
 
     public static void main(String[] args) {
 
-        Car myCar = new Car(100, 4, "pink");
+        System.out.println("Anzahl Autos: " + Car.getCarCounter());
+
+        Car myCar = new Car(100, 4, Colors.RED);
 
         myCar.setDoors(10);
         myCar.setWheels(100);
-        myCar.setColor("gelb");
+        //myCar.setColor("gelb");
         //myCar.licensePlate = "HD-XX 1234";
 
+        myCar.color = Colors.BLACK;
 
-        Car yourCar = new Car(3, 6, "grün");
+        Car yourCar = new Car(3, 6, Colors.BLACK);
         //yourCar.color = "grün";
 
 
@@ -23,6 +26,25 @@ public class CarTest {
 
         myCar.drive();
         yourCar.drive();
+
+        System.out.println("Anzahl Autos: " + Car.getCarCounter());
+
+
+
+        myCar = new Car(2, 4, Colors.BLACK);
+        yourCar = null;
+
+        System.gc();
+
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+
+        System.out.println("Anzahl Autos: " + Car.getCarCounter());
 
     }
 }

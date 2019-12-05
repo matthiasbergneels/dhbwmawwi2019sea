@@ -4,16 +4,44 @@ public class Car {
 
     private int doors;
     private int wheels;
-    private String color;
+    public Colors color;
     private String licensePlate;
     private boolean locked;
 
+    private static int carCounter = 0;
 
-    Car(int doors, int wheels, String color){
+    /*
+    public static final String COLOR_RED = "red";
+    public static final String COLOR_BLACK = "black";
+    public static final String COLOR_GREEN = "green";
+    */
+
+    public static final String[] COLORS = {"red", "black", "green"};
+
+    public Car(int doors, int wheels, Colors color){
+        carCounter++;
         // dry - don't repeat yourself
         this.setDoors(doors);
         this.setWheels(wheels);
-        this.setColor(color);
+        this.color = color;
+
+        this.licensePlate = "HD-XX " + (1000 + carCounter);
+    }
+
+    public String getLicensePlate() {
+        return licensePlate;
+    }
+
+    public void setLicensePlate(String licensePlate) {
+        this.licensePlate = licensePlate;
+    }
+
+    public boolean isLocked() {
+        return locked;
+    }
+
+    public void setLocked(boolean locked) {
+        this.locked = locked;
     }
 
     void drive(){
@@ -29,7 +57,7 @@ public class Car {
         return this.wheels;
     }
 
-    public String getColor(){
+    public Colors getColor(){
         return this.color;
     }
 
@@ -50,12 +78,29 @@ public class Car {
 
     }
 
+    /*
     protected void setColor(String color){
+
         if(color.equals("pink") || color.equals("grün") || color.equals("schwarz")){
             this.color = color;
         }else{
             this.color = "schwarz";
         }
 
+
+
+        for(String colorTest : COLORS){
+
+        }
+    }
+    */
+
+    public static int getCarCounter(){
+        return carCounter;
+    }
+
+    protected void finalize(){
+        carCounter--;
+        System.out.println("Auto wird verschrottet");
     }
 }
