@@ -1,12 +1,17 @@
 package excersises.chapter5.bahnhof;
 
+import excersises.chapter6.Kiste;
+import excersises.chapter6.Tonne;
+
 public class BahnhofTest {
     public static void main(String[] args) {
 
 
         Fracht[] ladung = {	new Fracht("Zeug", 1007.0, "Pappe"),
                 new Fracht("Mehr Zeug", 678.0, "Plastik"),
-                new Fracht("Flüssiges Zeug", 500.0, "Fass")};
+                new Fracht("Flüssiges Zeug", 500.0, "Fass"),
+                new Tonne("noch mehr flüssiges Zeug", 678.0, 100, 45),
+                new Kiste("Magazine", 600, 50, 60, 32)};
 
         Gueterwagon meinWagon = new Gueterwagon(1678, "Kastenwagon", (byte)6);
 
