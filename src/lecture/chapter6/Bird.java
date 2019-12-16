@@ -14,4 +14,22 @@ public class Bird extends Animal {
         System.out.println("Der Vogel zwitschert!");
     }
 
+    @Override
+    public void breath() {
+        System.out.println("Der Vogel atmet!");
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", kann fliegen: " + (flyable ? "Ja" : "Nein");
+    }
+
+    /*
+    final - can't be overwritten
+    public void move(){
+        System.out.println("");
+
+    }
+
+     */
 }
