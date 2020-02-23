@@ -19,6 +19,8 @@ public class Gueterzug {
 
         this.setLok(lok);
         this.setWagons(wagons);
+
+        System.out.println(this);
     }
 
     public Gueterzug(int nummer, int anzWagons){
