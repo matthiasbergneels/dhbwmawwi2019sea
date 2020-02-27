@@ -36,7 +36,11 @@ public class TravelAgencey {
                     }catch (NotEnoughFreeSlots notEnoughSlotsException2){
                         System.out.println("Ich hab mein Bestes versucht...");
 
+                    }catch(Exception e){
+                        System.out.println("Generische Ausnahme!");
+                        return;
                     }
+
                 }
 
                 System.out.println("Freie Plätze: " + bookableThing.freeSlots());

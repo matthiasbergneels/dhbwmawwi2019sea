@@ -21,7 +21,8 @@ public class Hotel implements Bookable{
         if(freeSlots() >= slots){
             bookedRoomCount += slots;
         }else{
-            throw new NotEnoughFreeSlots(slots, freeSlots());
+            NotEnoughFreeSlots ex = new NotEnoughFreeSlots(slots, freeSlots());
+            throw ex;
         }
 
     }

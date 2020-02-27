@@ -1,8 +1,12 @@
 package lecture.chapter6;
 
+import lecture.chapter5.*;
+
 public class Farm {
 
     public static void main(String[] args) {
+
+        Car myCar;
 
         /*
         animal is abstract --> can't be instanciated
