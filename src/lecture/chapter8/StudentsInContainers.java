@@ -10,7 +10,7 @@ public class StudentsInContainers {
 
         Student student1 = new Student(6728, "Franz", "Schmidt", 22);
         Student gabi1 = new Student(4711, "Gabi", "Müller", 23);
-        Student gabi2 = new Student(4711, "Gabi", "Müller", 23);
+        Student gabi2 = new Student(4711, "Gabi", "Müller", 25);
 
         studentList.add(gabi1);
         studentList.add(student1);
@@ -38,6 +38,8 @@ public class StudentsInContainers {
 
         System.out.println("Gabi1 comparoTo Gabi2 " + gabi1.compareTo(gabi2));
         System.out.println("Gabi1 equals Gabi2 " + gabi1.equals(gabi2));
+        System.out.println("HashCode Gabi1: " + gabi1.hashCode());
+        System.out.println("HashCode Gabi2: " + gabi2.hashCode());
 
 
         Set<Student> setOfStudentsDifferentSort = new TreeSet<Student>(new StudentSortByAgeAndSigns());
@@ -91,8 +93,5 @@ public class StudentsInContainers {
         for(Student student : studentList){
             System.out.println(student);
         }
-
     }
-
-
 }
