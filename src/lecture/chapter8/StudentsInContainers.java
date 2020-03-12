@@ -4,7 +4,6 @@ import java.util.*;
 
 public class StudentsInContainers {
 
-
     public static void main(String[] args) {
 
         List<Student> studentList = new ArrayList<Student>();
@@ -56,13 +55,42 @@ public class StudentsInContainers {
         for(Student student : studentList){
             System.out.println(student);
         }
-        
+
         System.out.println("Studierenden Liste (sortiert - nach Alter):");
         Collections.sort(studentList, new StudentSortByAgeAndSigns());
         for(Student student : studentList){
             System.out.println(student);
         }
 
+
+        System.out.println("Studierenden Liste (sortiert - Länge der Namen) via innere anonyme Klasse:");
+
+        // innere anonyme Klasse zur Sortierung
+        Comparator<Student> sortByNameLength = new Comparator<Student>() {
+            @Override
+            public int compare(Student o1, Student o2) {
+                return (o1.getFamilyName() + o1.getName()).length() - (o2.getFamilyName() + o2.getName()).length();
+            }
+        };
+
+        Collections.sort(studentList, sortByNameLength);
+
+        for(Student student : studentList){
+            System.out.println(student);
+        }
+
+
+
+
+        System.out.println("Studierenden Liste (sortiert - Länge der Namen) via Lambda:");
+
+        Collections.sort(studentList, (Student o1, Student o2) -> {
+            return (o1.getFamilyName() + o1.getName()).length() - (o2.getFamilyName() + o2.getName()).length();
+        });
+
+        for(Student student : studentList){
+            System.out.println(student);
+        }
 
     }
 
