@@ -93,5 +93,18 @@ public class StudentsInContainers {
         for(Student student : studentList){
             System.out.println(student);
         }
+
+
+
+
+        Map<Integer, Student> studentMap = new HashMap<Integer, Student>();
+        for(Student student : studentList){
+            studentMap.put(student.getStudentId(), student);
+        }
+
+        System.out.println("Matrikelnummer: 8723 - " + studentMap.get(8723));
+        System.out.println(studentMap.size());
+
+
     }
 }

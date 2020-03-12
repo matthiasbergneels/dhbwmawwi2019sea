@@ -61,5 +61,29 @@ public class ListExample {
 
 
 
+        List<Integer> numbers = new ArrayList<Integer>();
+
+        // auto-boxing --> automatisches erzeuge eines Objekts aus einfachem Datentyp
+        Integer numberA = 16;
+        //Integer numberAobject = new Integer(16);
+        //int numberAprimitiv = 16;
+
+
+        numbers.add(16);
+        numbers.add(89);
+        numbers.add(numberA);
+        //numbers.add(89.8);
+        //numbers.add(true);
+
+        // auto-unboxing
+        int numberPrimitiveA = numbers.get(1);
+
+        for(int number : numbers){
+            System.out.println(number);
+        }
+
+
+
+
     }
 }
