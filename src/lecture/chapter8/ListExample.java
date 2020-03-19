@@ -69,8 +69,11 @@ public class ListExample {
         //int numberAprimitiv = 16;
 
 
+        int primitivInteger = 100;
+
         numbers.add(16);
         numbers.add(89);
+        numbers.add(primitivInteger);
         numbers.add(numberA);
         //numbers.add(89.8);
         //numbers.add(true);

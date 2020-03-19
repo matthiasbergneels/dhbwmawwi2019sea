@@ -27,6 +27,13 @@ public class MapExample {
         }
 
 
+        Collection<String> colorValues = colorCodes.values();
+
+        for(String colorCode : colorValues){
+            System.out.println("Farbcode: " + colorCode);
+        }
+
+
     }
 
 }
