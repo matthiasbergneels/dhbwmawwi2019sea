@@ -20,7 +20,5 @@ public class MyFirstUI {
         myFrame.setBounds(100, 100, (int)(screenDimension.getWidth() / 2), 200);
         //myFrame.pack();
         myFrame.setVisible(true);
-
-
     }
 }
