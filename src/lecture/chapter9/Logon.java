@@ -43,19 +43,37 @@ public class Logon extends JFrame{
         final JFormattedTextField portField = new JFormattedTextField(new MaskFormatter("#####"));
 
         //create & assign elements for connection area
-        connectionPanel.add(new JPanel(new FlowLayout()).add(new JLabel("User:")));
-        connectionPanel.add(new JPanel(new FlowLayout()).add(new JTextField(5)));
-        connectionPanel.add(new JPanel(new FlowLayout()).add(new JLabel("Passwort:")));
-        connectionPanel.add(new JPanel(new FlowLayout()).add(new JPasswordField(7)));
-        connectionPanel.add(new JPanel(new FlowLayout()).add(new JLabel("Art:")));
-        connectionPanel.add(new JPanel(new FlowLayout()).add(myComboBox));
-        connectionPanel.add(new JPanel(new FlowLayout()).add(new JLabel("Host:")));
-
+        JPanel flowLayoutForCell = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        flowLayoutForCell.add(new JLabel("User:"));
+        connectionPanel.add(flowLayoutForCell);
+        flowLayoutForCell = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        flowLayoutForCell.add(new JTextField(5));
+        connectionPanel.add(flowLayoutForCell);
+        flowLayoutForCell = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        flowLayoutForCell.add(new JLabel("Passwort:"));
+        connectionPanel.add(flowLayoutForCell);
+        flowLayoutForCell = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        flowLayoutForCell.add(new JPasswordField(7));
+        connectionPanel.add(flowLayoutForCell);
+        flowLayoutForCell = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        flowLayoutForCell.add(new JLabel("Art:"));
+        connectionPanel.add(flowLayoutForCell);
+        flowLayoutForCell = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        flowLayoutForCell.add(myComboBox);
+        connectionPanel.add(flowLayoutForCell);
+        flowLayoutForCell = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        flowLayoutForCell.add(new JLabel("Host:"));
+        connectionPanel.add(flowLayoutForCell);
+        flowLayoutForCell = new JPanel(new FlowLayout(FlowLayout.LEFT));
         host = new JTextField(7);
-        connectionPanel.add(new JPanel(new FlowLayout()).add(host));
-        connectionPanel.add(new JPanel(new FlowLayout()).add(new JLabel("Port:")));
-        connectionPanel.add(new JPanel(new FlowLayout()).add(portField));
-
+        flowLayoutForCell.add(host);
+        connectionPanel.add(flowLayoutForCell);
+        flowLayoutForCell = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        flowLayoutForCell.add(new JLabel("Port:"));
+        connectionPanel.add(flowLayoutForCell);
+        flowLayoutForCell = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        flowLayoutForCell.add(portField);
+        connectionPanel.add(flowLayoutForCell);
 
         // create & add Fields for File Area
         filePanel.add(new JPanel(new FlowLayout()).add(new JLabel("Quelle:")));
