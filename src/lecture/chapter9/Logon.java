@@ -12,7 +12,7 @@ import javax.swing.text.MaskFormatter;
 public class Logon extends JFrame{
 
     private static final String COMMAND_OK = "OK";
-    private static final String COMMAND_CLOSE = "CLOSE";
+    private static final String COMMAND_CANCEL = "CANCEL";
 
     private JTextField host;
 
@@ -22,6 +22,18 @@ public class Logon extends JFrame{
 
         String[] valueHelp = {"FTP", "Telnet", "SMTP", "HTTP"};
         JComboBox<String> myComboBox = new JComboBox<String>(valueHelp);
+
+        myComboBox.addItemListener((ItemEvent e) -> {
+            if(e.getStateChange() == ItemEvent.SELECTED){
+                System.out.println("Selected item: " + e.getItem());
+            }
+        });
+
+        myComboBox.addActionListener((ActionEvent e) -> {
+            System.out.println(e.getActionCommand());
+        });
+
+
 
         // initialize Panels
         JPanel mainPanel = new JPanel(new BorderLayout());
@@ -39,7 +51,7 @@ public class Logon extends JFrame{
         //((GridLayout)connectionPanel.getLayout()).setVgap(15);
         //((GridLayout)filePanel.getLayout()).setVgap(15);
 
-        final JFormattedTextField portField = new JFormattedTextField(new MaskFormatter("#####"));
+        JFormattedTextField portField = new JFormattedTextField(new MaskFormatter("#####"));
         portField.setColumns(3);
 
         FlowLayout cellFlowLayout = new FlowLayout(FlowLayout.LEFT);
@@ -91,13 +103,87 @@ public class Logon extends JFrame{
         flowLayoutForCell.add(new JTextField(10));
         filePanel.add(flowLayoutForCell);
 
+
+        host.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                System.out.println("typed");
+                System.out.println("Char: " + e.getKeyChar());
+                System.out.println("KeyCode: " + e.getKeyCode());
+                System.out.println("extended KeyCode: " + e.getExtendedKeyCode());
+                System.out.println("Modifier: " + e.getModifiersEx());
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                System.out.println("pressed");
+                System.out.println("Char: " + e.getKeyChar());
+                System.out.println("KeyCode: " + e.getKeyCode());
+                System.out.println("extended KeyCode: " + e.getExtendedKeyCode());
+                System.out.println("Modifier: " + e.getModifiersEx());
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                System.out.println("released");
+                System.out.println("Char: " + e.getKeyChar());
+                System.out.println("KeyCode: " + e.getKeyCode());
+                System.out.println("extended KeyCode: " + e.getExtendedKeyCode());
+                System.out.println("Modifier: " + e.getModifiersEx());
+            }
+        });
+
+        ActionListener buttonListener = (ActionEvent e) -> {
+            switch (e.getActionCommand()){
+                case COMMAND_OK:
+                    System.out.println("OK pressed!");
+                    System.out.println("Host: " + host.getText());
+                    System.out.println("Port: " + portField.getText());
+                    host.setText("anderes Ziel");
+                    break;
+                case COMMAND_CANCEL:
+                    System.out.println("Cancel pressed!");
+                    System.exit(0);
+                    break;
+            }
+        };
+
+
         // create & assign Buttons
         JButton okButton = new JButton("Okay");
         okButton.setActionCommand(COMMAND_OK);
-        JButton cancelButton = new JButton("Schliessen");
-        cancelButton.setActionCommand(COMMAND_CLOSE);
+        okButton.addActionListener(buttonListener);
+        JButton cancelButton = new JButton("Cancel");
+        cancelButton.setActionCommand(COMMAND_CANCEL);
+        cancelButton.addActionListener(buttonListener);
 
-        JFormattedTextField finalPortField = portField;
+        okButton.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                ((JButton)e.getSource()).setEnabled(false);
+                System.out.println("Haha");
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                ((JButton)e.getSource()).setEnabled(true);
+            }
+        });
 
         southPanel.add(okButton);
         southPanel.add(cancelButton);
