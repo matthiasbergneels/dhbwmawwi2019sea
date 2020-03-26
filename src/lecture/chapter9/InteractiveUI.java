@@ -44,6 +44,8 @@ public class InteractiveUI extends JFrame {
 
             if(e.getActionCommand().equals(ACTION_COMMAND_CLOSE)){
                 System.exit(0);
+            }else{
+                openSecondJFrame();
             }
         };
 
@@ -58,6 +60,10 @@ public class InteractiveUI extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
         this.setVisible(true);
+    }
+
+    private void openSecondJFrame(){
+        System.out.println("Open new Frame");
     }
 
 
