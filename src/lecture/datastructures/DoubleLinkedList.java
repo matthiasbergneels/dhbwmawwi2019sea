@@ -1,6 +1,37 @@
 package lecture.datastructures;
 
-public class DoubleLinkedList {
+public class DoubleLinkedList<D> {
+
+    private Node<D> firstNode = null;
+    private Node<D> lastNode = null;
+
+    public void add(D data){
+        Node<D> newNode = new Node<D>(data);
+
+        if(this.firstNode == null && this.lastNode == null){
+            // Empty List
+            this.firstNode = newNode;
+            this.lastNode = newNode;
+        }else{
+            this.lastNode.setNextNode(newNode);
+            newNode.setPrevNode(this.lastNode);
+            this.lastNode = newNode;
+        }
+    }
+
+    public void addFirst(D data){
+        Node<D> newNode = new Node<D>(data);
+
+        if(this.firstNode == null && this.lastNode == null) {
+            // Empty List
+            this.firstNode = newNode;
+            this.lastNode = newNode;
+        }else{
+            this.firstNode.setPrevNode(newNode);
+            newNode.setNextNode(this.firstNode);
+            this.firstNode = newNode;
+        }
+    }
 
 
 
