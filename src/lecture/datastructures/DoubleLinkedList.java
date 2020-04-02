@@ -33,7 +33,49 @@ public class DoubleLinkedList<D> {
         }
     }
 
+    public boolean remove(D data){
 
+        if(!(this.firstNode == null && this.lastNode == null)) {
+            Node<D> currentNode = this.firstNode;
+
+            do{
+                if(currentNode.getData().equals(data)){
+                    if(currentNode == firstNode){
+                        currentNode.getNextNode().setPrevNode(null);
+                        this.firstNode =  currentNode.getNextNode();
+                        return true;
+                    }
+
+                    if(currentNode == lastNode){
+                        currentNode.getPrevNode().setNextNode(null);
+                        this.lastNode = currentNode.getPrevNode();
+                        return true;
+                    }
+
+                    currentNode.getPrevNode().setNextNode(currentNode.getNextNode());
+                    currentNode.getNextNode().setPrevNode(currentNode.getPrevNode());
+
+                    return true;
+                }
+                currentNode = currentNode.getNextNode();
+            }while(currentNode.getNextNode() != null);
+
+        }
+
+        return false;
+    }
+
+
+    public boolean contains(D data){
+        // TODO
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        // TODO
+        return "Ausgabe komplette Liste";
+    }
 
 
     private class Node<D>{
