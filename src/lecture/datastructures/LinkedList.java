@@ -1,6 +1,8 @@
 package lecture.datastructures;
 
-public class LinkedList {
+import java.util.List;
+
+public class LinkedList{
 
     private Node firstNode = null;
 
@@ -20,7 +22,27 @@ public class LinkedList {
         currentNode.setNextNode(newNode);
     }
 
+    public boolean remove(String data){
 
+        if(firstNode != null){
+
+            if(firstNode.getData().equals(data)){
+                firstNode = firstNode.getNextNode();
+                return true;
+            }
+
+            Node currentNode = firstNode;
+            while(currentNode.getNextNode() != null){
+                if(currentNode.getNextNode().getData().equals(data)){
+                    currentNode.setNextNode(currentNode.getNextNode().getNextNode());
+                    return true;
+                }
+                currentNode = currentNode.getNextNode();
+            }
+        }
+
+        return false;
+    }
 
 
 

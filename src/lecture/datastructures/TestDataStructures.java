@@ -10,7 +10,10 @@ public class TestDataStructures {
         foodList.add("Marmelade");
         foodList.add("Nougatcreme");
 
+        System.out.println(foodList.remove("Nougatcreme"));
+        System.out.println(foodList.remove("Blub"));
 
+        foodList.add("Brötchen");
 
     }
 }
