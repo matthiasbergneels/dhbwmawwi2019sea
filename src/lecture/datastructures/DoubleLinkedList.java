@@ -72,8 +72,22 @@ public class DoubleLinkedList<D> {
 
     @Override
     public String toString() {
-        // TODO
-        return "Ausgabe komplette Liste";
+        if(firstNode == null){
+            return "Empty List";
+        }
+
+        return toString(firstNode);
+    }
+
+    private String toString(Node<D> node){
+        String ausgabe = "";
+        ausgabe = ausgabe + node.getData() + "\n";
+
+        if(node.getNextNode() != null) {
+            ausgabe = ausgabe + toString(node.getNextNode());
+        }
+
+        return ausgabe;
     }
 
 

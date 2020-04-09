@@ -25,10 +25,14 @@ public class TestDataStructures {
         carBrandList.add("BMW");
         carBrandList.add("Porsche");
 
+        System.out.println(carBrandList.toString());
+
 
         System.out.println(carBrandList.remove("Mercedes"));
         System.out.println(carBrandList.remove("Fiat"));
         System.out.println(carBrandList.remove("BMW"));
+
+
 
 
     }
