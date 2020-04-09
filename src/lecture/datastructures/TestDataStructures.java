@@ -4,7 +4,7 @@ public class TestDataStructures {
 
 
     public static void main(String[] args) {
-        LinkedList foodList = new LinkedList();
+        LinkedList<String> foodList = new LinkedList<String>();
 
         foodList.add("Brot");
         foodList.add("Marmelade");

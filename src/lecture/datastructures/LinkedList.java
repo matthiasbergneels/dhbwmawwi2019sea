@@ -2,19 +2,19 @@ package lecture.datastructures;
 
 import java.util.List;
 
-public class LinkedList{
+public class LinkedList<D>{
 
-    private Node firstNode = null;
+    private Node<D> firstNode = null;
 
-    public void add(String data){
-        Node newNode = new Node(data);
+    public void add(D data){
+        Node<D> newNode = new Node<D>(data);
 
         if(firstNode == null){
             this.firstNode = newNode;
             return;
         }
 
-        Node currentNode = firstNode;
+        Node<D> currentNode = firstNode;
         while(currentNode.getNextNode() != null){
             currentNode = currentNode.getNextNode();
         }
@@ -22,7 +22,7 @@ public class LinkedList{
         currentNode.setNextNode(newNode);
     }
 
-    public boolean remove(String data){
+    public boolean remove(D data){
 
         if(firstNode != null){
 
@@ -31,7 +31,7 @@ public class LinkedList{
                 return true;
             }
 
-            Node currentNode = firstNode;
+            Node<D> currentNode = firstNode;
             while(currentNode.getNextNode() != null){
                 if(currentNode.getNextNode().getData().equals(data)){
                     currentNode.setNextNode(currentNode.getNextNode().getNextNode());
@@ -46,11 +46,11 @@ public class LinkedList{
 
 
 
-    private class Node{
-        private String data;
+    private class Node<D>{
+        private D data;
         private Node nextNode;
 
-        public Node(String data){
+        public Node(D data){
             this.data = data;
             this.nextNode = null;
         }
@@ -63,7 +63,7 @@ public class LinkedList{
             return this.nextNode;
         }
 
-        public String getData(){
+        public D getData(){
             return this.data;
         }
     }

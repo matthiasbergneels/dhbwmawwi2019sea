@@ -35,36 +35,35 @@ public class DoubleLinkedList<D> {
 
     public boolean remove(D data){
 
-        if(!(this.firstNode == null && this.lastNode == null)) {
-            Node<D> currentNode = this.firstNode;
+        Node<D> nodeToDelete = findNode(data);
 
-            do{
-                if(currentNode.getData().equals(data)){
-                    if(currentNode == firstNode){
-                        currentNode.getNextNode().setPrevNode(null);
-                        this.firstNode =  currentNode.getNextNode();
-                        return true;
-                    }
+        if(nodeToDelete != null){
+            if(nodeToDelete.getPrevNode() != null){
+                nodeToDelete.getPrevNode().setNextNode(nodeToDelete.getNextNode());
+            }else{
 
-                    if(currentNode == lastNode){
-                        currentNode.getPrevNode().setNextNode(null);
-                        this.lastNode = currentNode.getPrevNode();
-                        return true;
-                    }
+            }
 
-                    currentNode.getPrevNode().setNextNode(currentNode.getNextNode());
-                    currentNode.getNextNode().setPrevNode(currentNode.getPrevNode());
-
-                    return true;
-                }
-                currentNode = currentNode.getNextNode();
-            }while(currentNode.getNextNode() != null);
 
         }
 
         return false;
     }
 
+    private Node<D> findNode(D data) {
+        if(firstNode != null) {
+
+            Node<D> currentNode = firstNode;
+            do {
+                if (currentNode.getData().equals(data)) {
+                    return currentNode;
+                }
+                currentNode = currentNode.getNextNode();
+            } while (currentNode.getNextNode() != null);
+        }
+
+        return null;
+    }
 
     public boolean contains(D data){
         // TODO
