@@ -17,7 +17,7 @@ class TreeTest {
 
     @Test
     void addAndContains() {
-        testTree.add("eins");
+        testTree.add("25");
         testTree.add("zwei");
         testTree.add("drei");
 
