@@ -13,6 +13,10 @@ public class TreeExample {
         numberTree.add(35);
         numberTree.add(5);
 
-        System.out.println("Baum ist fertig!");
+        System.out.println("Baum ist fertig aufgebaut!");
+
+        numberTree.printInOrder();
+
+        numberTree.printPreOrder();
     }
 }

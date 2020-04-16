@@ -45,9 +45,25 @@ public class Tree<D> {
     }
 
     public boolean contains(D data){
-
-        return false;
+        return contains(root, data);
     }
+
+    private boolean contains(Node<D> currentNode, D data){
+        if(currentNode == null){
+            return false;
+        }
+
+        if(currentNode.getData().equals(data)){
+            return true;
+        }
+
+        if(((Comparable)currentNode.getData()).compareTo(data) > 0){
+            return contains(currentNode.getLeftNode(), data);
+        }else{
+            return contains(currentNode.getRightNode(), data);
+        }
+    }
+
 
     public D find(D data){
 
@@ -55,9 +71,62 @@ public class Tree<D> {
     }
 
     public int size(){
-
-        return 0;
+        return size;
     }
+
+
+
+    public void printInOrder(){
+        if(root == null){
+            System.out.println("Baum ist leer");
+        }else{
+            System.out.println("In-Order Ausgabe für Baum:");
+            printInOrder(root);
+        }
+    }
+
+    private void printInOrder(Node<D> currentNode){
+        if(currentNode.getLeftNode() != null){
+            printInOrder(currentNode.getLeftNode());
+        }
+
+        System.out.println(currentNode.getData());
+
+        if(currentNode.getRightNode() != null){
+            printInOrder(currentNode.getRightNode());
+        }
+    }
+
+    public void printPreOrder(){
+        if(root == null){
+            System.out.println("Baum ist leer");
+        }else{
+            System.out.println("Pre-Order Ausgabe für Baum:");
+            printPreOrder(root);
+        }
+    }
+
+    private void printPreOrder(Node<D> currentNode){
+        System.out.println(currentNode.getData());
+
+        if(currentNode.getLeftNode() != null){
+            printPreOrder(currentNode.getLeftNode());
+        }
+
+        if(currentNode.getRightNode() != null){
+            printPreOrder(currentNode.getRightNode());
+        }
+    }
+
+    public void printPostOrder(){
+        if(root == null){
+            System.out.println("Baum ist leer");
+        }else{
+            System.out.println("Post-Order Ausgabe für Baum:");
+            // Todo Post Order
+        }
+    }
+
 
     private class Node<D>{
 
