@@ -17,6 +17,10 @@ public class TreeExample {
 
         numberTree.printInOrder();
 
+        numberTree.printReverseInOrder();
+
         numberTree.printPreOrder();
+
+        numberTree.printPostOrder();
     }
 }

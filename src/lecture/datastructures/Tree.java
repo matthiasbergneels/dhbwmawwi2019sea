@@ -97,6 +97,27 @@ public class Tree<D> {
         }
     }
 
+    public void printReverseInOrder(){
+        if(root == null){
+            System.out.println("Baum ist leer");
+        }else{
+            System.out.println("Reverse-In-Order Ausgabe für Baum:");
+            printReverseInOrder(root);
+        }
+    }
+
+    private void printReverseInOrder(Node<D> currentNode){
+        if(currentNode.getRightNode() != null){
+            printReverseInOrder(currentNode.getRightNode());
+        }
+
+        System.out.println(currentNode.getData());
+
+        if(currentNode.getLeftNode() != null){
+            printReverseInOrder(currentNode.getLeftNode());
+        }
+    }
+
     public void printPreOrder(){
         if(root == null){
             System.out.println("Baum ist leer");
@@ -123,8 +144,21 @@ public class Tree<D> {
             System.out.println("Baum ist leer");
         }else{
             System.out.println("Post-Order Ausgabe für Baum:");
-            // Todo Post Order
+            printPostOrder(root);
         }
+    }
+
+
+    private void printPostOrder(Node<D> currentNode){
+        if(currentNode.getLeftNode() != null){
+            printPostOrder(currentNode.getLeftNode());
+        }
+
+        if(currentNode.getRightNode() != null){
+            printPostOrder(currentNode.getRightNode());
+        }
+
+        System.out.println(currentNode.getData());
     }
 
 
