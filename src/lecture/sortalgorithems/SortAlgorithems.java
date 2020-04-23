@@ -11,6 +11,8 @@ public class SortAlgorithems {
         int j = array.length - 1;
         boolean swapped = false;
 
+        long startTime = System.currentTimeMillis();
+
         do{
             swapped = false;
 
@@ -22,6 +24,10 @@ public class SortAlgorithems {
             }
             j--;
         }while(swapped);
+
+        long endTime = System.currentTimeMillis();
+
+        System.out.println("BubbleSort Runtime: " + (endTime - startTime) + " ms");
 
         return array;
     }
