@@ -32,6 +32,30 @@ public class SortAlgorithems {
         return array;
     }
 
+    public static int[] selectionSort(int[] array){
+
+        long startTime = System.currentTimeMillis();
+
+        int marker = array.length - 1;
+
+        while(marker > 0){
+            int maxPos = 0;
+            for(int i = 0; i <= marker; i++){
+                if(array[i] > array[maxPos]){
+                    maxPos = i;
+                }
+            }
+            swap(array, maxPos, marker);
+            marker--;
+        }
+
+        long endTime = System.currentTimeMillis();
+
+        System.out.println("SelectionSort Runtime: " + (endTime - startTime) + " ms");
+
+        return array;
+    }
+
     private static void swap(int[] array, int a, int b) {
         int temp = array[a];
         array[a] = array[b];
