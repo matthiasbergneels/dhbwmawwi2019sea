@@ -56,6 +56,28 @@ public class SortAlgorithems {
         return array;
     }
 
+    public static int[] insertionSort(int[] array){
+
+        long startTime = System.currentTimeMillis();
+
+        for(int i = 1; i < array.length; i++){
+            for(int j = i; j > 0; j--){
+                if(array[j] < array[j-1]){
+                    swap(array, j, j-1);
+                }else{
+                    break;
+                }
+            }
+        }
+
+        long endTime = System.currentTimeMillis();
+
+        System.out.println("SelectionSort Runtime: " + (endTime - startTime) + " ms");
+
+        return array;
+    }
+
+
     private static void swap(int[] array, int a, int b) {
         int temp = array[a];
         array[a] = array[b];
@@ -79,5 +101,8 @@ public class SortAlgorithems {
 
         System.out.println("Bubble Sorted Array");
         printArray(bubbleSortedArray);
+
+        System.out.println("Selection Sorted Array");
+        printArray(selectionSort(toSort.clone()));
     }
 }

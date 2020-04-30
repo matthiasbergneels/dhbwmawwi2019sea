@@ -28,6 +28,12 @@ class SortAlgorithemsTest {
         assertTrue(isSorted(selectionSortedArray));
     }
 
+    @Test
+    void insertionSort(){
+        int[] insertionSortedArray = SortAlgorithems.insertionSort(toSort.clone());
+        assertTrue(isSorted(insertionSortedArray));
+    }
+
     private static boolean isSorted(int[] array){
         for(int i = 0; i < array.length-1; i++){
             if(array[i] > array[i+1]){
